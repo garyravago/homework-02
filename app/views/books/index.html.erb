@@ -2,10 +2,8 @@
 <br />
 
 <% @books.each do |book| %>
+<h2><%= book.title %></h2>  
   <table>
-    <tr>
-      <td><h2><%= book.title %></h2></td>
-    </tr>
     <tr>
       <td>Author</td>
       <td><%= book.author %></td>

@@ -5,3 +5,42 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Book.destroy_all
+
+book_classification = 
+["General Works encyclopedias",
+"Philosophy", 
+"Psychology", 
+"Religion",
+"History Auxiliary Sciences",
+"History (except American)",
+"General U.S. History",
+"Local U.S. History",
+"Geography", 
+"Anthropology", 
+"Recreation",
+"Social Sciences",
+"Political Science",
+"Law",
+"Education",
+"Music",
+"Fine Arts",
+"Language and Literature",
+"Science",
+"Medicine",
+"Agriculture",
+"Technology",
+"Military",
+"Naval Science",
+"Bibliography and Library Science"]
+
+book_category = ["Fiction", "Nonfiction"]
+
+50.times do |index|
+  Book.create!(title: Faker::Book.title,
+                author: Faker::Book.author,
+                genre: Faker::Book.genre,
+                classification: book_classification[rand(0..book_classification.length-1)],
+                category: book_category[rand(0..book_category.length-1)],
+                year: Faker::Number.between(1990, 2017).to_s)
+end
