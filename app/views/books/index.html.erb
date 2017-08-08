@@ -1,6 +1,9 @@
 <h1><%= pluralize(@books.size, "Book") %> in the catalog</h1>
 <br />
 
+<%= link_to 'Add New Book', new_book_path %>
+<br /><br />
+
 <% @books.each do |book| %>
 <h2><%= link_to book.title, book %></h2>  
   <hr />

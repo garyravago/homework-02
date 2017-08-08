@@ -7,13 +7,23 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  def new
+    @book = Book.new
+  end
+
   def edit
     @book = Book.find(params[:id])
   end
 
+  def create
+    @book = Book.create(book_params)
+    redirect_to Book.last
+  end
+
   def update
-    book = Book.update(book_params)
-    redirect_to book_url
+    @book = Book.find(params[:id])
+    @book.update(book_params)
+    redirect_to @book_url
   end
 
   private
