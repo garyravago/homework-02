@@ -1,8 +1,18 @@
 <h1><%= pluralize(@books.size, "Book") %> in the catalog</h1>
 <br />
 
-<%= link_to 'Add New Book', new_book_path %>
+<%= form_tag(books_path, method: "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Books By Title" %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
+
 <br /><br />
+<%= link_to 'Add New Book', new_book_path %>
+<% if params[:search] %>
+  | <%= link_to 'Back', books_path %>
+<% end %>
+<br /><br />
+
 
 <% @books.each do |book| %>
 <h2><%= link_to book.title, book %></h2>  

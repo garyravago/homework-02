@@ -1,6 +1,11 @@
 class BooksController < ApplicationController
   def index
     @books = Book.all.order(:title)
+    if params[:search]
+      @books = Book.search(params[:search]).order(:title)
+    else
+      @books = Book.all.order(:title)
+    end
   end
 
   def show
