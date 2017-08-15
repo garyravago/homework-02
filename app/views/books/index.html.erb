@@ -2,8 +2,8 @@
 <br />
 
 <%= form_tag(books_path, method: "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Books By Title" %>
-  <%= submit_tag "Search", name: nil %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Catalag" %>
+  <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
 <% end %>
 
 <br /><br />
@@ -14,8 +14,9 @@
 <% end %>
 <br /><br />
 
-
-<% @books.each do |book| %>
-<h2><%= link_to book.title, book %></h2>  
-  <hr />
-<% end %>
+<div class="index-box col-10 offset-1">
+	<% @books.each do |book| %>
+	<h2><%= link_to book.title, book %></h2>  
+	  <hr />
+	<% end %>
+</div>
