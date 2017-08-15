@@ -2,8 +2,14 @@
 
 <table>
   <tr>
-    <td>Author</td>
-    <td><%= @book.author %></td>
+    <td><%= "Author".pluralize(@authors) %></td>
+    <td>
+      <ul>
+      <% @authors.each do |author| %>
+        <li><%= author.first_name %> <%= author.last_name %><br/>
+      <% end %>
+      </ul>
+    </td>
   </tr>
   <tr>
     <td>Genre</td>
@@ -28,4 +34,3 @@
     method: :delete, 
     data: {confirm: 'Are you sure you want to delete this book?' } %> |
 <%= link_to 'Back', books_path %><br /><br ?>
-<%= link_to 'Add Author', new_author_path %>
