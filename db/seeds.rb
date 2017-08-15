@@ -48,7 +48,8 @@ end
                 genre: Faker::Book.genre,
                 classification: book_classification[rand(0..book_classification.length-1)],
                 category: book_category[rand(0..book_category.length-1)],
-                year: Faker::Number.between(1990, 2017).to_s)
+                year: Faker::Number.between(1990, 2017).to_s,
+                sub_title: Faker::Hipster.sentence)
 end
 
 @books = Book.all
