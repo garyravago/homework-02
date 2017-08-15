@@ -36,11 +36,22 @@ book_classification =
 
 book_category = ["Fiction", "Nonfiction"]
 
+25.times do |index|
+	Author.create!( first_name: Faker::Name.first_name,
+									last_name: Faker::Name.last_name,
+									age: Faker::Number.between(23, 75)		
+								)
+end
+
 50.times do |index|
   Book.create!(title: Faker::Book.title,
-                author: Faker::Book.author,
                 genre: Faker::Book.genre,
                 classification: book_classification[rand(0..book_classification.length-1)],
                 category: book_category[rand(0..book_category.length-1)],
                 year: Faker::Number.between(1990, 2017).to_s)
+end
+
+@books = Book.all
+@books.each do |book|
+	book.authorships.create(author_id: rand(1..25))
 end
