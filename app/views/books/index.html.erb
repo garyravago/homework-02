@@ -1,4 +1,4 @@
-<h1><%= pluralize(@books.size, "Book") %> in the catalog</h1>
+<h1><%= pluralize(@total_books.size, "Book") %> in the catalog</h1>
 <br />
 
 <%= render 'shared/search' %>
@@ -17,3 +17,5 @@
 	  <hr />
 	<% end %>
 </div>
+
+<%= paginate @books %>

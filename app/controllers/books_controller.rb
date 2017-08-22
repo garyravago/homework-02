@@ -2,7 +2,8 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, only: [:update, :create, :destroy]
 
   def index
-    @books = Book.all.order(:title)
+    @total_books = Book.all
+    @books = @total_books.all.order(:title).page params[:page]
   end
 
   def show

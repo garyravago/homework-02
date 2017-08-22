@@ -1,7 +1,5 @@
 class CatalogController < ApplicationController
 	def index
-		#if params[:search]
-      @books = Book.search(params[:search]).order(:title)
-    #else
+    @books = Book.search(params[:search]).order(:title).page params[:page]
 	end
 end
