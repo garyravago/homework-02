@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only: [:update, :create, :destroy]
+
   def index
     @books = Book.all.order(:title)
     if params[:search]
