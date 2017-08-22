@@ -1,0 +1,10 @@
+<h1><%= pluralize(@books.size, "results") %> found</h1>
+<br />
+<%= render 'shared/search' %><br /><br />
+
+<div class="index-box col-10 offset-1">
+	<% @books.each do |book| %>
+	<h2><%= link_to book.title, book %></h2>  
+	  <hr />
+	<% end %>
+</div>

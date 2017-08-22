@@ -1,10 +1,7 @@
 <h1><%= pluralize(@books.size, "Book") %> in the catalog</h1>
 <br />
 
-<%= form_tag(books_path, method: "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Catalag" %>
-  <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
-<% end %>
+<%= render 'shared/search' %>
 
 <br /><br />
 <%= link_to 'Add New Book', new_book_path %>
