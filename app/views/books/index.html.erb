@@ -1,21 +1,25 @@
-<h1><%= pluralize(@total_books.size, "Book") %> in the catalog</h1>
-<br />
+<div align="center">
+	<h1><%= pluralize(@total_books.size, "Book") %> in the catalog</h1>
+	<br />
 
-<%= render 'shared/search' %>
+	<%= render 'shared/search' %>
+	<br /><br />
 
-<br /><br />
-<%= link_to 'Add New Book', new_book_path %>
-| <%= link_to 'Add Author', new_author_path %>
-<% if params[:search] %>
-  | <%= link_to 'Back', books_path %>
-<% end %>
-<br /><br />
-
-<div class="index-box col-10 offset-1">
-	<% @books.each do |book| %>
-	<h2><%= link_to book.title, book %></h2>  
-	  <hr />
+	<%= link_to 'Add New Book', new_book_path %>
+	| <%= link_to 'Add Author', new_author_path %>
+	<% if params[:search] %>
+	  | <%= link_to 'Back', books_path %>
 	<% end %>
-</div>
+	<br /><br />
 
-<%= paginate @books %>
+	<div class="index-box col-10 offset-1">
+		<% @books.each do |book| %>
+		<h2><%= link_to book.title, book %></h2>  
+		  <hr />
+		<% end %>
+	</div>
+	<br/>
+	<div class="center", align="center">
+	<%= paginate @books %>
+	</div>
+</div>
